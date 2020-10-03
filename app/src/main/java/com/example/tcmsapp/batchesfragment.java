@@ -20,8 +20,21 @@ public class batchesfragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_batchesfragment,container,false);
 
-        ImageView backbtn = view.findViewById(R.id.backbtn);
+        ImageView backbtn = view.findViewById(R.id.backBtn);
         ImageView addbatch = view.findViewById(R.id.addbatch);
+        ImageView editbatch = view.findViewById(R.id.editbatch);
+
+        editbatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.contrainer,new updatebatchfragment());
+
+                fragmentTransaction.commit();
+            }
+        });
+
+
         addbatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

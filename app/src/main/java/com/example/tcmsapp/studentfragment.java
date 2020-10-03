@@ -31,6 +31,18 @@ public class studentfragment extends Fragment {
             }
         });
 
+        ImageView menubtn = view.findViewById(R.id.menubtn);
+
+        menubtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.contrainer,new calenderFM());
+
+                fragmentTransaction.commit();
+            }
+        });
+
         ImageView addtd = view.findViewById(R.id.newStudent);
 
         addtd.setOnClickListener(new View.OnClickListener() {

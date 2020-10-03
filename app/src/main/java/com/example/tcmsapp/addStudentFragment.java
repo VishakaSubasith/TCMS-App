@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,26 @@ public class addStudentFragment extends Fragment {
             }
         });
 
+        ImageView backbtn = view.findViewById(R.id.backBtn);
+        ImageView menubtn = view.findViewById(R.id.menubtn);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.contrainer,new ActivestudentList());
+
+                fragmentTransaction.commit();
+            }
+        });
+        menubtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.contrainer,new calenderFM());
+
+                fragmentTransaction.commit();
+            }
+        });
 
         final Calendar myCalendar = Calendar.getInstance();
 
